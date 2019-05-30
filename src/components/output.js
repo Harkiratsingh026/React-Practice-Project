@@ -27,7 +27,7 @@ export default class App extends Component{
             'Access-Control-Allow-Origin': "*" 
         }
     };
-    axios.post("http://52.175.213.123:6060/ttc/upload", formData, config)
+    axios.post("", formData, config)
     .then((response) => {
         debugger;
         this.setState({

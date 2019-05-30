@@ -7,7 +7,7 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 
 const Footer = () => (
     <footer className="footer">
-      <p>NIIT Technologies Pvt Ltd. <CopyrightIcon style={{width:'14px', height:'14px'}}/>2019</p>
+      <p>ABC Technologies Pvt Ltd. <CopyrightIcon style={{width:'14px', height:'14px'}}/>2019</p>
     </footer>
   );
   

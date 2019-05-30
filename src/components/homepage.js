@@ -73,7 +73,7 @@ export default class HomePage extends Component {
               value={this.state.value}
               onClick={this.props.onClick}
             >
-              <img style={{ marginLeft:15, marginTop: 5, marginBottom: 5}} value='homepage' id="homepage" src={Logo} alt="Logo"/>
+              <img style={{ marginLeft:15, marginTop: 5, marginBottom: 5, height: '50px', width: '50px'}} value='homepage' id="homepage" src={Logo} alt="Logo"/>
             </StyledTab>
           </AppBar>
           <div style={{ backgroundImage: `url(${bg})`,  backgroundPosition: 'center', backgroundSize: 'cover', height: "82vh"}}>
