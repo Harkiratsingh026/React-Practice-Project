@@ -14,7 +14,7 @@ import EmailIcon from '@material-ui/icons/Email';
 
 import Logo from '../images/logo_white.png';
 import bg from '../images/bg.jpg';
-import Image from './image';
+import Slip from './pdf/input';
 
 
 var obj = {'Acord': 'Assignment', 'SLIP/MRC': 'Receipt', 'Image Extraction': 'ImageSearch', 'Email Body Extraction': 'Email'};
@@ -83,8 +83,8 @@ export default class NavigationPage extends Component {
             <div style={{ backgroundImage: `url(${bg})`,  backgroundPosition: 'center', backgroundSize: 'cover', height: "82vh"}}>
               {this.state.value === 0 && <TabContainer>Home</TabContainer>}        
               {this.state.value === 'acord' && <TabContainer>Acord</TabContainer>}
-              {this.state.value === 'slip' && <TabContainer>Slip</TabContainer>}
-              {this.state.value === 'image' && <TabContainer style={{backgroundColor: '#2b62a4', opacity: '0.7'}}><Image /></TabContainer>}
+              {this.state.value === 'slip' && <TabContainer><Slip /></TabContainer>}
+              {this.state.value === 'image' && <TabContainer style={{backgroundColor: '#2b62a4', opacity: '0.7'}}>Image</TabContainer>}
               {this.state.value === 'email' && <TabContainer>Email</TabContainer>}
             </div>
         </div>
