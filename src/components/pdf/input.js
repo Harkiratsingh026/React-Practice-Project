@@ -4,7 +4,9 @@ import axios from "axios";
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import Output from './output'
+import Output from './output';
+import Box from '@material-ui/core/Box';
+
 
 export default class App extends Component{
   
@@ -27,13 +29,12 @@ export default class App extends Component{
 
   onChange(e) {
     this.setState({file:e.target.files[0]});
-    debugger;
   }
 
   render() {
     switch(this.state.processing){
       case true:
-          return <Output file= {this.state.file} processing= {false}/>;
+          return <Output label= {this.props.label} file= {this.state.file} processing= {this.state.processing} url={this.props.url}/>;
       case false:
           return (  
             <div id= "form">
@@ -41,66 +42,26 @@ export default class App extends Component{
                     direction="column"
                     alignItems="center"
                     justify="center"
-                    style={{ minHeight: '65vh'}}>
-                <Grid container style={{ paddingLeft: '75vh', display: 'contents'}}>
+                    style={{ minHeight: '85vh'}}>
+                <Grid container style={{ paddingLeft: '20px', display: 'contents'}}>
                   <Grid item>
                     <Paper style={{backgroundColor: 'black', opacity: '0.8'}} id= "acord">
                       <Typography variant="subtitle2" component="h3" style={{color:"white"}} id= "acord">
-                        <form onSubmit={this.onFormSubmit} style={{padding:'10px'}}>
-                          <AssignmentIcon style={{ color: 'white' }} id= "acord"/><h3>File Upload</h3>
-                          <input type="file" name="myImage" onChange= {this.onChange} />
-                          <button type="submit">Upload</button>
-                        </form>
+                        <Box boxShadow={2}>
+                          <form onSubmit={this.onFormSubmit} style={{padding:'10px'}}>
+                            <AssignmentIcon style={{ color: 'white' }} id= "acord"/><h3>File Upload</h3>
+                            <input type="file" name="myImage" onChange= {this.onChange} />
+                            <button type="submit">Upload</button>
+                          </form>
+                        </Box>
                       </Typography>
                     </Paper>
                   </Grid>
                 </Grid>
               </Grid>
             </div>
-            // <div>
-            //   <Grid container spacing={3}>
-            //     <Grid item xs={12}>
-            //       <Card>
-            //         <CardHeader >
-            //           Upload PDF File 
-            //         </CardHeader>
-            //         <CardContent>
-            //         <form onSubmit={this.onFormSubmit}>
-            //             <h1>File Upload</h1>
-            //             <input type="file" name="myImage" onChange= {this.onChange} />
-            //             <button type="submit">Upload</button>
-            //         </form>
-            //         </CardContent>
-            //       </Card>
-            //     </Grid>
-            //     <Grid item xs={6}>
-            //       <Card>
-            //         <CardHeader>
-            //           Image 
-            //         </CardHeader>
-            //         <CardContent>
-            //           Image Content
-            //         </CardContent>
-            //       </Card>
-            //     </Grid>
-            //     <Grid item xs={6}>
-            //       <Card>
-            //         <CardHeader>
-            //           Upload PDF File 
-            //         </CardHeader>
-            //         <CardContent>
-            //           JSON Content
-            //         </CardContent>
-            //       </Card>
-            //     </Grid>
-            //   </Grid>
-            // </div>
           ); 
     }
     
   }
 }
-
-
-
-
