@@ -14,7 +14,9 @@ import EmailIcon from '@material-ui/icons/Email';
 
 import Logo from '../images/logo_white.png';
 import bg from '../images/bg.jpg';
-import Slip from './pdf/input';
+import Pdf from './pdf/input';
+import Email from './email/input';
+import Image from './image/input';
 
 
 var obj = {'Acord': 'Assignment', 'SLIP/MRC': 'Receipt', 'Image Extraction': 'ImageSearch', 'Email Body Extraction': 'Email'};
@@ -47,7 +49,6 @@ export default class NavigationPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     this.setState({value: nextProps.selectedTab});
   }
 
@@ -64,7 +65,7 @@ export default class NavigationPage extends Component {
 
   render(){  
     return (
-      <div>
+      <div >
         <div>
           <CssBaseline />
           <AppBar position="static" color="default">
@@ -73,19 +74,19 @@ export default class NavigationPage extends Component {
               value={this.state.value}
               onChange={this.handleChange}
             >
-              <img style={{marginLeft:15, marginTop: 5, marginBottom: 5, height: '50px', width: '50px'}} value= "homepage" id= "homepage" onClick={this.props.onClick} src={Logo} alt="Logo"/>
+              <img style={{marginLeft:15, marginTop: 5, marginBottom: 5}} value= "homepage" id= "homepage" onClick={this.props.onClick} src={Logo} alt="Logo"/>
               <Tab style={{marginLeft:25}} value= "acord" centered={true} label={<span style={{ color: 'white'}}>{'Acord'}</span>} icon={<AssignmentIcon style={{ color: 'white' }}/>} />
               <Tab style={{marginLeft:10}} value= "email" centered={true} label={<span style={{ color: 'white' }}>{'Email Body Extraction'}</span>} icon={<EmailIcon style={{ color: 'white' }}/>} />
               <Tab style={{marginLeft:10}} value= "image" centered={true} label={<span style={{ color: 'white' }}>{'Image Extraction'}</span>} icon={<ImageSearchIcon style={{ color: 'white' }}/>} />
               <Tab style={{marginLeft:10}} value= "slip" centered={true} label={<span style={{ color: 'white' }}>{'SLIP/MRC'} </span>} icon={<ReceiptIcon style={{ color: 'white' }}/>} />
             </StyledTab>
           </AppBar>
-            <div style={{ backgroundImage: `url(${bg})`,  backgroundPosition: 'center', backgroundSize: 'cover', height: "82vh"}}>
+            <div style={{ backgroundImage: `url(${bg})`,  backgroundPosition: 'center', backgroundSize: 'cover', height: "85vh"}}>
               {this.state.value === 0 && <TabContainer>Home</TabContainer>}        
-              {this.state.value === 'acord' && <TabContainer>Acord</TabContainer>}
-              {this.state.value === 'slip' && <TabContainer><Slip /></TabContainer>}
-              {this.state.value === 'image' && <TabContainer style={{backgroundColor: '#2b62a4', opacity: '0.7'}}>Image</TabContainer>}
-              {this.state.value === 'email' && <TabContainer>Email</TabContainer>}
+              {this.state.value === 'acord' && <TabContainer>< Pdf url={"http://52.175.213.123:8080/acord/pdf"} label= {"Accord"}/></TabContainer>}
+              {this.state.value === 'slip' && <TabContainer>< Pdf url={"http://52.175.213.123:9090/pdf/uploadSLIP"} label= {"SLIP/MRC"} /></TabContainer>}
+              {this.state.value === 'image' && <TabContainer><Image url={"http://52.175.213.123:6060/ttc/upload"} label= {"Image"}/></TabContainer>}
+              {this.state.value === 'email' && <TabContainer>< Email url={"http://52.175.213.123:7070/extractemail"} label= {"Email"} /></TabContainer>}
             </div>
         </div>
       </div>
